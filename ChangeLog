@@ -1,3 +1,14 @@
+2005-10-07  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+
+	* genmakefile.sh:
+	Add .xcf files to dist
+
+	* redglass/Makefile.cfg:
+	* whiteglass/Makefile.cfg:
+	* redglass/Makefile.cursors:
+	* whiteglass/Makefile.cursors:
+	Add missing files to DIST and regenerate */Makefile.cursors
+
 2005-07-11  Daniel Stone  <daniel@freedesktop.org>
 
 	* Initial autotooling.

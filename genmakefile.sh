@@ -21,7 +21,7 @@ for i in $CURSORS; do
 	echo
 	echo "	\$(XCURSORGEN) -p \$(srcdir) \$(srcdir)/${i}.cfg ${i}"
 	echo
-	EXTRA_DIST="${EXTRA_DIST} ${i}.cfg"
+	EXTRA_DIST="${EXTRA_DIST} ${i}.cfg ${i}.xcf"
 done
 
 test "x$DIST" = "x" || EXTRA_DIST="${EXTRA_DIST} ${DIST}"
