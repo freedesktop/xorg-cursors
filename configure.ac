@@ -18,7 +18,8 @@ if test "x$XCURSORGEN" = xno; then
 fi
 AC_SUBST([XCURSORGEN])
 
-cursordir="${datadir}/icons"
+PKG_CHECK_MODULES(ICONDEFS, xcursor)
+cursordir=$(pkg-config --variable=icondir xcursor)
 AC_SUBST([cursordir])
 
 AM_CONDITIONAL(WHITEGLASS, true)

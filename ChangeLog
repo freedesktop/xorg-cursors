@@ -1,3 +1,8 @@
+2005-12-09  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+
+	* configure.ac:
+	Get the cursor install dir from xcursor.pc.
+
 2005-10-18  Kevin E. Martin  <kem-at-freedesktop-dot-org>
 
 	* configure.ac:
