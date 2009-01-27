@@ -1,7 +1,17 @@
 *~
+ChangeLog
+Makefile
 Makefile.in
 aclocal.m4
 autom4te.cache
+config.h
+config.h.in
+config.log
+config.cursor
+config.status
 configure
 install-sh
 missing
+stamp-h1
+tags
+xcursor-themes-*.tar.*
