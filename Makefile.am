@@ -2,7 +2,7 @@ DISTCHECK_CONFIGURE_FLAGS = --with-cursordir=\$${datadir}/icons
 
 SUBDIRS = handhelds redglass whiteglass
 
-EXTRA_DIST = genmakefile.sh ChangeLog
+EXTRA_DIST = genmakefile.sh 
 
 AUTOMAKE_OPTIONS = foreign
 
