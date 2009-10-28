@@ -6,9 +6,12 @@ EXTRA_DIST = genmakefile.sh
 
 AUTOMAKE_OPTIONS = foreign
 
-dist-hook: ChangeLog
+dist-hook: ChangeLog INSTALL
 
-.PHONY: ChangeLog
+.PHONY: ChangeLog INSTALL
+
+INSTALL:
+	$(INSTALL_CMD)
 
 ChangeLog:
 	$(CHANGELOG_CMD)
