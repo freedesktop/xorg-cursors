@@ -4,8 +4,6 @@ SUBDIRS = handhelds redglass whiteglass
 
 EXTRA_DIST = genmakefile.sh 
 
-AUTOMAKE_OPTIONS = foreign
-
 dist-hook: ChangeLog INSTALL
 
 .PHONY: ChangeLog INSTALL
