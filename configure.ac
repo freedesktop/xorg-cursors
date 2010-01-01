@@ -18,7 +18,7 @@ fi
 AC_SUBST([XCURSORGEN])
 
 PKG_CHECK_MODULES(ICONDEFS, xcursor)
-pkg_cursordir=`pkg-config --variable=icondir xcursor`
+pkg_cursordir=`$PKG_CONFIG --variable=icondir xcursor`
 AC_ARG_WITH(cursordir,
         AC_HELP_STRING([--with-cursordir=<pathname>],
           [specify directory for cursor files (default is autodetected)]),
