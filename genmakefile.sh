@@ -4,26 +4,27 @@
 
 test "x$1" = "x" || . "$1"
 
-echo "# this is a generated file -- do not edit."
-echo 
-echo "CURSORFILES = ${CURSORS}"
-echo "CLEANFILES = \$(CURSORFILES)"
-echo "cursor_DATA = \$(CURSORFILES)"
-echo
+printf '# this is a generated file -- do not edit.\n'
+printf '\n'
+printf 'CURSORFILES = %s\n' "${CURSORS}"
+printf 'CLEANFILES = $(CURSORFILES)\n'
+printf 'cursor_DATA = $(CURSORFILES)\n'
+printf '\n'
 
 for i in $CURSORS; do
-	echo -n "${i}:"
+	printf '%s:' "${i}"
 	for png in $(cut -d" " -f4 ${i}.cfg); do
 		EXTRA_DIST="${EXTRA_DIST} ${png}"
-		echo -n " \$(srcdir)/${png}"
+		printf ' $(srcdir)/%s' "${png}"
 	done
-	echo
-	echo "	\$(XCURSORGEN) -p \$(srcdir) \$(srcdir)/${i}.cfg ${i}"
-	echo
+	printf '\n'
+	printf '\t$(XCURSORGEN) -p $(srcdir) $(srcdir)/%s.cfg %s\n' \
+	    "${i}" "${i}"
+	printf '\n'
 	EXTRA_DIST="${EXTRA_DIST} ${i}.cfg ${i}.xcf"
 done
 
 test "x$DIST" = "x" || EXTRA_DIST="${EXTRA_DIST} ${DIST}"
 
 # the lack of space is intentional.
-echo "EXTRA_DIST =${EXTRA_DIST}"
+printf 'EXTRA_DIST =%s\n' "${EXTRA_DIST}"
