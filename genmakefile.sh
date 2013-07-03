@@ -2,6 +2,9 @@
 # this script written by daniel stone <daniel@freedesktop.org>, placed in the
 # public domain.
 
+# Default srcdir variable, overridden by Makefile.cfg in handhelds directory
+srcdir='$(srcdir)'
+
 test "x$1" = "x" || . "$1"
 
 printf '# this is a generated file -- do not edit.\n'
@@ -14,14 +17,19 @@ printf '\n'
 for i in $CURSORS; do
 	printf '%s:' "${i}"
 	for png in $(cut -d" " -f4 ${i}.cfg); do
-		EXTRA_DIST="${EXTRA_DIST} ${png}"
-		printf ' $(srcdir)/%s' "${png}"
+		if test "x${srcdir}" = 'x$(srcdir)' ; then
+			EXTRA_DIST="${EXTRA_DIST} ${png}"
+		fi
+		printf ' %s/%s' "${srcdir}" "${png}"
 	done
 	printf '\n'
-	printf '\t$(XCURSORGEN) -p $(srcdir) $(srcdir)/%s.cfg %s\n' \
-	    "${i}" "${i}"
+	printf '\t$(XCURSORGEN) -p %s $(srcdir)/%s.cfg %s\n' \
+	    "${srcdir}" "${i}" "${i}"
 	printf '\n'
-	EXTRA_DIST="${EXTRA_DIST} ${i}.cfg ${i}.xcf"
+	EXTRA_DIST="${EXTRA_DIST} ${i}.cfg"
+	if test "x${srcdir}" = 'x$(srcdir)' ; then
+		EXTRA_DIST="${EXTRA_DIST} ${i}.xcf"
+	fi
 done
 
 test "x$DIST" = "x" || EXTRA_DIST="${EXTRA_DIST} ${DIST}"
