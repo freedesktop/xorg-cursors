@@ -40,9 +40,9 @@ AM_CONDITIONAL(REDGLASS, true)
 AM_CONDITIONAL(HANDHELDS, true)
 
 
-AC_OUTPUT([
-	Makefile
-	handhelds/Makefile
-	redglass/Makefile
-	whiteglass/Makefile
+AC_CONFIG_FILES([Makefile
+                handhelds/Makefile
+                redglass/Makefile
+                whiteglass/Makefile
 ])
+AC_OUTPUT
